@@ -1,0 +1,4 @@
+secretGenerator:
+- name: gcp-sync-account
+  files:
+  - sync-service-account.json
