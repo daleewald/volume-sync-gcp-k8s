@@ -20,7 +20,7 @@ spec:
         valueFrom:
           configMapKeyRef:
             key: INCLUDE_FILE_PATTERN
-            name: sync-config
+            name: sync-confi
       - name: EXCLUDE_FILE_PATTERN
         valueFrom:
           configMapKeyRef:

@@ -4,4 +4,5 @@ configMapGenerator:
   files:
   - redis-config
 resources:
-- redis-pod.yaml
+- redis-deployment.yaml
+- redis-service.yaml

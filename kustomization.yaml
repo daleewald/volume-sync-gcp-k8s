@@ -1,7 +1,6 @@
 configMapGenerator:
 - name: sync-config
   namespace: volume-sync-gcp-k8s
-  files:
-    - sync-config.properties
+  env: sync-config.env
 resources:
   - watcher-pod.yaml
