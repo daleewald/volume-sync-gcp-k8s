@@ -9,7 +9,7 @@ spec:
   volumes:
     - name: sync-volume
       persistentVolumeClaim:
-        claimName: sync-volume-pvc
+        claimName: sync-pv-claim
   containers:
     - name: watcher-container
       image: dewaldops/volume-sync-watcher-ch:latest
@@ -22,7 +22,7 @@ spec:
         value: ""
       volumeMounts:
         - mountPath: "/syncdir"
-          name: sync-volume-pvc
+          name: sync-pv-claim
       resources:
         limits:
           cpu: "0.5"
