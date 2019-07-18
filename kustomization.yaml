@@ -3,4 +3,4 @@ configMapGenerator:
   namespace: volume-sync-gcp-k8s
   env: sync-config.env
 resources:
-  - watcher-pod.yaml
+  - watcher-deployment.yaml
