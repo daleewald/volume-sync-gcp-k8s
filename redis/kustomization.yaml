@@ -1,4 +1,7 @@
 configMapGenerator:
 - name: sync-redis-config
+  namespace: volume-sync-gcp-k8s
   files:
   - redis-config
+resources:
+- redis-pod.yaml

@@ -17,8 +17,15 @@ spec:
       - name: BASE_DIR
         value: "/syncdir/"
       - name: INCLUDE_FILE_PATTERN
-        value: "**/*"
+        valueFrom:
+          configMapKeyRef:
+            key: INCLUDE_FILE_PATTERN
+            name: sync-config
       - name: EXCLUDE_FILE_PATTERN
+        valueFrom:
+          configMapKeyRef:
+            key: EXCLUDE_FILE_PATTERN
+            name: sync-config
         value: ""
       volumeMounts:
         - mountPath: "/syncdir"

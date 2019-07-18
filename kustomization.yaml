@@ -1,0 +1,5 @@
+configMapGenerator:
+- name: sync-config
+  namespace: volume-sync-gcp-k8s
+  files:
+    - sync-config.properties
