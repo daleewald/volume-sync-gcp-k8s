@@ -1,4 +1,5 @@
 secretGenerator:
 - name: gcp-sync-account
+  namespace: volume-sync-gcp-k8s
   files:
   - sync-service-account.json
