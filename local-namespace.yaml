@@ -1,0 +1,4 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: volume-sync-gcp-k8s
