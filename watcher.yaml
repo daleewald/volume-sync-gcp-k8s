@@ -22,7 +22,7 @@ spec:
         value: ""
       volumeMounts:
         - mountPath: "/syncdir"
-          name: sync-pv-claim
+          name: sync-volume
       resources:
         limits:
           cpu: "0.5"
