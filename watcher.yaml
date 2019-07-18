@@ -1,0 +1,32 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: watcher-pod
+  namespace: volume-sync-gcp-k8s
+  labels:
+    name: watcher
+spec:
+  volumes:
+    - name: sync-volume
+      persistentVolumeClaim:
+        claimName: sync-volume-pvc
+  containers:
+    - name: watcher-container
+      image: dewaldops/volume-sync-watcher-ch:latest
+      env:
+      - name: BASE_DIR
+        value: "/syncdir/"
+      - name: INCLUDE_FILE_PATTERN
+        value: "**/*"
+      - name: EXCLUDE_FILE_PATTERN
+        value: ""
+      volumeMounts:
+        - mountPath: "/syncdir"
+          name: sync-volume-pvc
+      resources:
+        limits:
+          cpu: "0.5"
+          memory: "1G"
+        requests:
+          cpu: "0.2"
+          memory: "200M"

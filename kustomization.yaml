@@ -3,3 +3,5 @@ secretGenerator:
   namespace: volume-sync-gcp-k8s
   files:
   - sync-service-account.json
+generatorOptions:
+  disableNameSuffixHash: true
