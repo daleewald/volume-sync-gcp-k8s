@@ -9,6 +9,7 @@ spec:
   selector:
     matchLabels:
       app: worker
+  replicas: 3
   template:
     metadata:
       labels:
