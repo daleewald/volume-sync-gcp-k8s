@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker-deployment
+  namespace: volume-sync-gcp-k8s
+  labels:
+    app: worker
+spec:
+  selector:
+    matchLabels:
+      app: worker
+  template:
+    metadata:
+      labels:
+        app: worker
+    spec:
+      volumes:
+        - name: sync-volume
+          persistentVolumeClaim:
+            claimName: sync-pv-claim
+      containers:
+      - name: worker-container
+        image: dewaldops/volume-sync-worker-gcp:latest
+        env:
+          - name: BASE_DIR
+            value: "/mnt/syncdir/"
+          - name: PROJECT_ID
+            valueFrom:
+              configMapKeyRef:
+                key: GCP_PROJECT_ID
+                name: sync-config
+          - name: BUCKET_NAME
+            valueFrom:
+              configMapKeyRef:
+                key: GCP_BUCKET_NAME
+                name: sync-config
+        volumeMounts:
+          - mountPath: "/mnt"
+            name: sync-volume
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "0.5"
+        

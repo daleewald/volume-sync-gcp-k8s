@@ -4,3 +4,4 @@ configMapGenerator:
   env: sync-config.env
 resources:
   - watcher-deployment.yaml
+  - worker-deployment.yaml

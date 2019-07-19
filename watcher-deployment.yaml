@@ -35,7 +35,6 @@ spec:
               configMapKeyRef:
                 key: EXCLUDE_FILE_PATTERN
                 name: sync-config
-            value: ""
           volumeMounts:
             - mountPath: "/mnt"
               name: sync-volume
