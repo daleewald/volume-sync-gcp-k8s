@@ -38,7 +38,7 @@ spec:
                 key: GCP_BUCKET_NAME
                 name: sync-config
           - name: GOOGLE_APPLICATION_CREDENTIALS
-            value: /var/secrets/google/key.json
+            value: /var/secrets/google/sync-service-account.json
         volumeMounts:
           - name: sync-volume
             mountPath: "/mnt"
