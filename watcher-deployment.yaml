@@ -21,7 +21,7 @@ spec:
             claimName: sync-pv-claim
       containers:
         - name: watcher-container
-          image: dewaldops/volume-sync-watcher-ch:latest
+          image: dewaldops/volume-sync-watcher-ch:1.0
           env:
           - name: BASE_DIR
             value: "/mnt/syncdir/"

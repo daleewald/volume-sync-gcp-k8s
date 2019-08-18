@@ -24,7 +24,7 @@ spec:
             secretName: gcp-sync-account
       containers:
       - name: worker-container
-        image: dewaldops/volume-sync-worker-gcp:latest
+        image: dewaldops/volume-sync-worker-gcp:1.0
         env:
           - name: BASE_DIR
             value: "/mnt/syncdir/"
