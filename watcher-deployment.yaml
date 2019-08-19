@@ -35,6 +35,11 @@ spec:
               configMapKeyRef:
                 key: EXCLUDE_FILE_PATTERN
                 name: sync-config
+          - name: BUCKET_NAME
+            valueFrom:
+              configMapKeyRef:
+                key: GCP_BUCKET_NAME
+                name: sync-config
           volumeMounts:
             - mountPath: "/mnt"
               name: sync-volume
