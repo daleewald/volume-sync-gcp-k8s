@@ -15,10 +15,40 @@ spec:
   hostPath:
     path: "/mnt/h10.1"
 ---
+kind: PersistentVolume
 apiVersion: v1
+metadata:
+  name: log-pv
+  namespace: volume-sync-gcp-k8s
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: "/mnt/h10.2"
+---
 kind: PersistentVolumeClaim
+apiVersion: v1
 metadata:
   name: sync-pv-claim
+  namespace: volume-sync-gcp-k8s
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: log-pv-claim
   namespace: volume-sync-gcp-k8s
 spec:
   storageClassName: manual

@@ -19,6 +19,9 @@ spec:
         - name: sync-volume
           persistentVolumeClaim:
             claimName: sync-pv-claim
+        - name: logs-volume
+          persistentVolumeClaim:
+            claimName: log-pv-claim
       containers:
         - name: watcher-container
           image: dewaldops/volume-sync-watcher-ch:1.0
@@ -40,9 +43,13 @@ spec:
               configMapKeyRef:
                 key: GCP_BUCKET_NAME
                 name: sync-config
+          - name: LOGS_DIR
+            value: "/mnt/logs/"
           volumeMounts:
-            - mountPath: "/mnt"
+            - mountPath: "/mnt/syncdir"
               name: sync-volume
+            - mountPath: "/mnt/logs"
+              name: logs-volume
           resources:
             limits:
               cpu: "0.5"
